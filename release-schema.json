@@ -1,87 +1,128 @@
 {
-  "releases": [
-    {
-      "buyer": {
+  "definitions": {
+    "Tender": {
+      "properties": {
         "consolidatedProcessMxCnet": {
           "title": "Consolidated Process",
-          "description": "Consolidated Process in COMPRANET México. Identifies whether the contract is part of a consolidated purchase.",
-          "type": "bool"
-        }
-      },
-      "parties": {
-        "details": {
-          "govLevel": {
-            "title": "Government Level",
-            "description": "The government level of the buyer party. Can be one of: country, region, or city.",
-            "type": "string"
-          },
-          "scaleReportedByBuyerMxCnet": {
-            "title": "Scale Reported by Buyer",
-            "description": "Supplier party scale as reported by the buyer. Can be one of: No MIPYME, Mediana, Pequeña, or Micro.",
-            "type": "string"
-          },
-          "scaleReportedBySupplierMxCnet": {
-            "title": "Scale Reported by Supplier",
-            "description": "Supplier party scale as reported by the supplier itself. Can be one of: No MIPYME, Mediana, Pequeña, or Micro.",
-            "type": "string"
-          }
-        }
-      },
-      "tender": {
+          "description": "Consolidated Process in COMPRANET México. Identifies whether the contract is part of a consolidated purchase",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
         "procurementMethodMxCnet": {
           "title": "Procurement Method",
-          "description": "Procurement Method in COMPRANET México. Identifies the procurement method used by the buyer.",
-          "type": "string"
+          "description": "Procurement Method in COMPRANET México. Identifies the procurement method used by the buyer",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "procurementMethodCharacterMxCnet": {
           "title": "Procurement character",
-          "description": "Procurement character in COMPRANET México. Indicates the character of the procurement method used by the buyer.",
-          "type": "string"
+          "description": "Procurement character in COMPRANET México. Indicates the character of the procurement method used by the buyer",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "procurementMethodDetailsTemplateMxCnet": {
-          "title": "Procuremnt Method Details",
-          "description": "Procuremnt Method Details in COMPRANET México. Indicates the template selected by the buyer's contact point while creating the contracting process and corresponds to the procurement method being used.",
-          "type": "string"
+          "title": "Procurement Method Details",
+          "description": "Procurement Method Details in COMPRANET México. Indicates the template selected by the buyer's contact point while creating the contracting process and corresponds to the procurement method being used.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "contractPeriod": {
-          "multiyearContractMxCnet": {
-            "title": "Multiyear Contract",
-            "description": "Multiyear Contract in COMPRANET México. Indicates whether a contract spans more than one fiscal period.",
-            "type": "bool"
-          }
+        "multiyearContractMxCnet": {
+          "title": "Multiyear Contract",
+          "description": "Multiyear Contract in COMPRANET México. Indicates whether a contract spans more than one fiscal period",
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
-      },
-      "contracts": [
-        {
-          "hasFramework": {
-            "title": "Contract Framework Existence",
-            "description": "Indicates whether a Contract Framework is used in a specific contract. Contract Frameworks are a strategy through which buyers reach an agreement with one or many providers, where technical and quality specifications, scopes, prices and conditions are established to regulate the acquisition or leasing of properties, or the provision of services.",
-            "type": "bool"
-          },
-          "framework": {
-            "title": "Contract Framework",
-            "description": "Textual reference of the Contract Framework to which a specific contract is linked.",
-            "type": "string"
-          },
-          "statusMxCnet": {
-            "title": "Contract Status",
-            "description": "Contract Status in COMPRANET México. Activo: state of the contract while it is being executed. Terminado: state of the contract when the buyer cancels or rescinds the contract before its end date. Expirado: state of the contract when its end date has been reached.",
-            "type": "string"
-          },
-          "period": {
-            "multiyearContractMxCnet": {
-              "title": "Multiyear Contract",
-              "description": "Multiyear Contract in COMPRANET México. Indicates whether a contract spans more than one fiscal period.",
-              "type": "bool"
+      }
+    },
+    "Contract": {
+      "properties": {
+        "hasFramework": {
+          "title": "Contract Framework Existence",
+          "description": "Indicates whether a Contract Framework is used in a specific contract. Contract Frameworks are a strategy through which buyers reach an agreement with one or many providers, where technical and quality specifications, scopes, prices and conditions are established to regulate the acquisition or leasing of properties, or the provision of services.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "framework": {
+          "title": "Contract Framework",
+          "description": "Textual reference of the Contract Framework to which a specific contract is linked",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statusMxCnet": {
+          "title": "Contract Status",
+          "description": "Contract Status in COMPRANET México",
+          "type": [
+            "string",
+            "null"
+          ],
+          "codelist": "status-mx-cnet.csv",
+          "openCodelist": true
+        },
+        "multiyearContractMxCnet": {
+          "title": "Multiyear Contract",
+          "description": "Multiyear Contract in COMPRANET México. Indicates whether a contract spans more than one fiscal period.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "filedMxCnet": {
+          "title": "Filed contract",
+          "description": "Filed contract in COMPRANET México. Classification state that indicates if the electronic element that contains the relevant contract data has been filed inside the system. This has no impact on publishing of the information being reported.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "Organization": {
+      "properties": {
+        "details": {
+          "properties": {
+            "govLevel": {
+              "title": "Government Level",
+              "description": "The government level of the buyer party",
+              "type": [
+                "string",
+                "null"
+              ],
+              "codelist": "gov-level.csv",
+              "openCodelist": true
+            },
+            "scaleReportedByBuyerMxCnet": {
+              "title": "Scale Reported by Buyer",
+              "description": "Supplier party scale as reported by the buyer. Can be one of: No MIPYME, Mediana, Pequeña, or Micro.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scaleReportedBySupplierMxCnet": {
+              "title": "Scale Reported by Supplier",
+              "description": "Supplier party scale as reported by the supplier itself. Can be one of: No MIPYME, Mediana, Pequeña, or Micro.",
+              "type": [
+                "string",
+                "null"
+              ]
             }
-          },
-          "filedMxCnet": {
-              "title": "Filed contract",
-              "description": "Filed contract in COMPRANET México. Classification state that indicates if the electronic element that contains the relevant contract data has been filed inside the system. This has no impact on publishing of the information being reported.",
-              "type": "bool"
           }
         }
-      ]
+      }
     }
-  ]
+  }
 }

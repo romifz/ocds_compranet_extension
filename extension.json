@@ -6,10 +6,14 @@
     "en": "Extension for values in COMPRANET (Mexico) as yet unavailable in OCDS."
   },
   "documentationUrl": {
-    "en": "https://github.com/ProjectPODER/ocds_compranet_extension/README.md"
+    "en": "https://github.com/ProjectPODER/ocds_compranet_extension/"
   },
   "schemas": [
     "release-schema.json"
+  ],
+  "codelists": [
+    "status-mx-cnet.csv",
+    "gov-level.csv"
   ],
   "compatibility": [
     "1.1"

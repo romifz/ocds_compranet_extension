@@ -1,0 +1,4 @@
+Code,Title,Description
+Activo,Activo,State of the contract while it is being executed
+Terminado,Terminado,State of the contract when the buyer cancels or rescinds the contract before its end date
+Expirado,Expirado,State of the contract when its end date has been reached
